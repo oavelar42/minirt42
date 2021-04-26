@@ -21,3 +21,13 @@ t_vec3	cross_vec3(t_vec3 u, t_vec3 v)
 	t.z = u.x * v.y - u.y * v.x;
 	return (t);
 }
+
+t_vec3	mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m )
+{
+	t_vec3	t;
+
+	t.x = v.x * m.v1.x + v.y * m.v2.x + v.z * m.v3.x;
+	t.y = v.x * m.v1.y + v.y * m.v2.y + v.z * m.v3.y;
+	t.z = v.x * m.v1.z + v.z * m.v2.z + v.z * m.v3.z;
+	return (t);
+}

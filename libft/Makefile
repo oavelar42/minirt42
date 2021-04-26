@@ -37,9 +37,9 @@ SRCS		= ft_memset.c \
 				ft_max.c \
 				ft_pow.c \
 				ft_sort_int.c \
-				ft_strclr \
+				ft_strclr.c \
 				ft_strnew.c \
-				ft_swap \
+				ft_swap.c \
 				ft_isblank.c \
 			  ft_isalpha.c \
 			  ft_isdigit.c \

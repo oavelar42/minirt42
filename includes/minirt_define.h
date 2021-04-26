@@ -51,9 +51,17 @@ void	scene_quit(t_scene *scene);
 */
 void	read_element(char **line, t_scene *scene);
 void	check_scene_values(t_scene *scene);
+void		read_resolution(char **line, t_scene *scene);
+void		read_ambient(char **line, t_scene *scene);
 
 void	delete_cameras(t_cam **cams);
 void	next_camera(t_scene *scene);
+
+void		read_light(char **line, t_scene *scene);
+t_light		*create_light(char **line, t_scene *scene);
+void		add_light(t_light **lights, t_light *new_light);
+void		delete_lights(t_light **lights);
+
 
 void		read_sphere(char **line, t_scene *scene);
 t_sphere	*create_sphere(char **line, t_scene *scene);
@@ -63,6 +71,9 @@ void		delete_spheres(t_sphere **spheres);
 /*
 ** bmp FUNCIONS
 */
+void		save_image_bmp(t_scene *scene);
+void		header_data(int fd, t_scene *scene);
+void		pixel_data(int fd, t_scene *scene);
 
 /*
 ** render FUNCIONS
@@ -81,6 +92,13 @@ void	cast_ray(t_ray *ray, t_scene *scene);
 /*
 ** auxiliar FUNCTIONS
 */
+
+void		skip_blanks(char **str);
+void		skip_digits(char **str);
+void		skip_char(char **str, int c);
+int			get_int(char **line, t_scene *scene);
+double		get_double(char **line, t_scene *scene);
+
 void	    normalize_vec3(t_vec3 *v1);
 t_color	    get_color_vec3(char **line, t_scene *scene);
 t_vec3	    get_vec3(char **line, t_scene *scene);
@@ -88,6 +106,9 @@ t_vec3	    get_vec3(char **line, t_scene *scene);
 t_vec3      new_vec3(double x, double y, double z);
 t_vec3		esc_vec3(double k, t_vec3 v);
 t_vec3	    add_vec3(t_vec3 u, t_vec3 v);
+
+t_vec3		cross_vec3(t_vec3 v1, t_vec3 v2);
+t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 
 /*
 ** others
