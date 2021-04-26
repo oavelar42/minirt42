@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int ft_exit(t_vars *vars)
+/*int ft_exit(t_vars *vars)
 {
 	ft_free_map(vars->lines);
 	ft_free_scene(vars->scene);
@@ -64,4 +64,4 @@ int press_key(int keycode, t_vars *vars)
 		return (0);
 	mlx_loop_hook(vars->mlx, &thread_init, vars);
 	return (1);
-}
+}*/

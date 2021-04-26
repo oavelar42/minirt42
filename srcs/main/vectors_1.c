@@ -11,3 +11,13 @@
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+t_vec3	cross_vec3(t_vec3 u, t_vec3 v)
+{
+	t_vec3	t;
+
+	t.x = u.y * v.z - u.z * v.y;
+	t.y = u.z * v.x - u.x * v.z;
+	t.z = u.x * v.y - u.y * v.x;
+	return (t);
+}

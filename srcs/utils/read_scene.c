@@ -20,7 +20,22 @@ void	check_scene_values(t_scene *scene)
 		exit_error_msg(NO_CAM_ERR, scene);
 }
 
-
+void	read_element(char **line, t_scene *scene)
+{
+	if (!ft_strncmp(*line, "R ", 2))
+		read_resolution(line, scene);
+	else if (!ft_strncmp(*line, "A ", 2))
+		read_ambient(line, scene);
+	else if (!ft_strncmp(*line, "c ", 2))
+		read_camera(line, scene);
+	else if (!ft_strncmp(*line, "l ", 2))
+		read_light(line, scene);
+	else if (!ft_strncmp(*line, "sp ", 3))
+		read_sphere(line, scene);
+	else if (**line != EMPTY_LINE_GNL)
+		exit_error_msg(SCENE_FORMAT_ERR, scene);
+	return ;
+}
 
 void	read_scene(char *file, t_scene *scene)
 {
@@ -38,7 +53,7 @@ void	read_scene(char *file, t_scene *scene)
 		read_element(&line, scene);
 		free(temp);
 	}
-	free(line)
+	free(line);
 	close(fd);
 	check_scene_values(scene);
 }

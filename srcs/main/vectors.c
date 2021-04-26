@@ -12,3 +12,32 @@
 
 #include "minirt.h"
 
+t_vec3	new_vec3(double x, double y, double z)
+{
+	t_vec3	v1;
+
+	v1.x = x;
+	v1.y = y;
+	v1.z = z;
+	return (v1);
+}
+
+t_vec3	add_vec3(t_vec3 u, t_vec3 v)
+{
+	t_vec3 	w;
+
+	w.x = u.x + v.x;
+	w.y = u.y + v.y;
+	w.z = u.z + v.z;
+	return (w);
+}
+
+t_vec3	esc_vec3(double k, t_vec3 v)
+{
+	t_vec3	t;
+
+	t.x = k * v.x;
+	t.y = k * v.y;
+	t.z = k * v.z;
+	return (t);
+}

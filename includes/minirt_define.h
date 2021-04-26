@@ -42,14 +42,23 @@
 int	main(int argc, char **argv);
 void	scene_init(t_scene *scene);
 void	check_args(int argc, char **argv, t_scene *scene);
+void    read_scene(char *file, t_scene *scene);
 void	display_scene(t_scene *scene);
 void	scene_quit(t_scene *scene);
 
 /*
 ** read FUNCIONS
 */
+void	read_element(char **line, t_scene *scene);
+void	check_scene_values(t_scene *scene);
+
 void	delete_cameras(t_cam **cams);
 void	next_camera(t_scene *scene);
+
+void		read_sphere(char **line, t_scene *scene);
+t_sphere	*create_sphere(char **line, t_scene *scene);
+void		add_sphere(t_sphere **spheres, t_sphere *new_sphere);
+void		delete_spheres(t_sphere **spheres);
 
 /*
 ** bmp FUNCIONS
@@ -72,7 +81,13 @@ void	cast_ray(t_ray *ray, t_scene *scene);
 /*
 ** auxiliar FUNCTIONS
 */
+void	    normalize_vec3(t_vec3 *v1);
+t_color	    get_color_vec3(char **line, t_scene *scene);
+t_vec3	    get_vec3(char **line, t_scene *scene);
 
+t_vec3      new_vec3(double x, double y, double z);
+t_vec3		esc_vec3(double k, t_vec3 v);
+t_vec3	    add_vec3(t_vec3 u, t_vec3 v);
 
 /*
 ** others
@@ -82,5 +97,10 @@ int	refresh(t_scene *scene);
 int	close_program(t_scene *scene);
 void	exit_error_msg(t_error id, t_scene *scene);
 void	push_image(t_scene *scene);
+void	move_element(int keycode, t_scene *scene);
+void	move_x_pos(t_scene *scene, int key);
+void	move_x_neg(t_scene *scene, int key);
+void	move_y_pos(t_scene *scene, int key);
+void	move_y_neg(t_scene *scene, int key);
 
 #endif
