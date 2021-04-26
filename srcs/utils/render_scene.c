@@ -45,7 +45,7 @@ void	set_ray(t_ray *ray, t_scene *scene, double x, double y)
 	ray->dir.y = (1 - 2 * (y + 0.5) / scene->res.height)
 		* tan(scene->cams->fov / 2 * M_PI / 180);
 	ray->dir.z = -1;
-	ray->dir = mult_vec3_mat3x3(ray->dir, scene->cams->cams_to_world);
+	ray->dir = mult_vec3_mat3x3(ray->dir, scene->cams->cam_to_world);
 	normalize_vec3(&ray->dir);
 	ray->t = DBL_MAX;
 	ray->color = (t_color){0, 0, 0};
@@ -55,7 +55,7 @@ void	set_ray(t_ray *ray, t_scene *scene, double x, double y)
 
 void	cast_ray(t_ray *ray, t_scene *scene)
 {
-	void	objs;
+	void	*objs;
 
 	objs = scene->spheres;
 	while (objs)

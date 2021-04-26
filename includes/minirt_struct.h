@@ -67,6 +67,13 @@ typedef struct s_res
 	int	declared;
 }		t_res;
 
+typedef struct s_amb
+{
+	double	bright;
+	t_color	color;
+	int	declared;
+}		t_amb;
+
 typedef struct s_cam
 {
 	t_vec3		pos;
@@ -104,6 +111,7 @@ typedef struct s_scene
 	char		*img_address;
 	void		*img;
 	t_res		res;
+	t_amb		amb;
 	t_cam		*cams;
 	int		cam_count;
 	t_light		*lights;
