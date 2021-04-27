@@ -15,6 +15,9 @@
 void	scene_init(t_scene *scene)
 {
 	scene->save_bmp = 0;
+	scene->specular = 0;
+	scene->sepia = 0;
+	scene->stereoscopy = 0;
 	scene->win = NULL;
 	scene->obj_id = 0;
 	scene->res.declared = 0;
@@ -23,6 +26,7 @@ void	scene_init(t_scene *scene)
 	scene->cam_count = 0;
 	scene->spheres = NULL;
 	scene->lights = NULL;
+	scene->planes = NULL;
 }
 
 void	scene_quit(t_scene *scene)
@@ -30,4 +34,5 @@ void	scene_quit(t_scene *scene)
 	delete_cameras(&scene->cams);
 	delete_lights(&scene->lights);
 	delete_spheres(&scene->spheres);
+	delete_planes(&scene->planes);
 }

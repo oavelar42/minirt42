@@ -22,6 +22,11 @@ t_vec3	cross_vec3(t_vec3 u, t_vec3 v)
 	return (t);
 }
 
+double		mod_vec3(t_vec3 v)
+{
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+}
+
 t_vec3	mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m )
 {
 	t_vec3	t;

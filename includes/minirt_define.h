@@ -71,6 +71,11 @@ t_sphere	*create_sphere(char **line, t_scene *scene);
 void		add_sphere(t_sphere **spheres, t_sphere *new_sphere);
 void		delete_spheres(t_sphere **spheres);
 
+void		read_plane(char **line, t_scene *scene);
+t_plane		*create_plane(char **line, t_scene *scene);
+void		add_plane(t_plane **planes, t_plane *new_plane);
+void		delete_planes(t_plane **planes);
+
 /*
 ** bmp FUNCIONS
 */
@@ -89,6 +94,8 @@ void	save_pixel(char **buffer, t_color color);
 void	cast_ray(t_ray *ray, t_scene *scene);
 void		render_sphere(t_ray *ray, t_scene *scene, t_sphere *sphere);
 double		intersect_sphere(t_ray *ray, t_sphere *sphere);
+void		render_plane(t_ray *ray, t_scene *scene, t_plane *plane);
+double		intersect_plane(t_ray *ray, t_plane *plane);
 
 t_color		get_surface_data(t_scene *scene, t_hit *p);
 t_color		illuminate(t_light *light, t_hit *p, int opt_specular);
@@ -99,6 +106,9 @@ void		check_rgb_color(t_color *color);
 /*
 ** shade FUNCIONS
 */
+int			shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos);
+int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
+
 
 /*
 ** auxiliar FUNCTIONS
@@ -123,6 +133,7 @@ t_vec3	    add_vec3(t_vec3 u, t_vec3 v);
 double  	dot_vec3(t_vec3 u, t_vec3 v);
 
 t_vec3		cross_vec3(t_vec3 v1, t_vec3 v2);
+double		mod_vec3(t_vec3 v);
 t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 
 /*

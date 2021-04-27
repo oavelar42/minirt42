@@ -99,6 +99,14 @@ typedef struct s_sphere
 	struct s_sphere	*next;
 }		t_sphere;
 
+typedef struct	s_plane
+{
+	t_vec3			point;
+	t_vec3			n_dir;
+	t_color			color;
+	struct s_plane	*next;
+}				t_plane;
+
 typedef struct s_cyl
 {
 	t_vec3		point;
@@ -136,6 +144,7 @@ typedef struct s_scene
 	int		cam_count;
 	t_light		*lights;
 	t_sphere	*spheres;
+	t_plane		*planes;
 	t_cyl		*cyls;
 }		t_scene;
 
