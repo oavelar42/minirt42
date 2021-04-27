@@ -63,7 +63,7 @@ void	display_scene(t_scene *scene)
 			scene->res.height, "OavelaRT");
 	scene->img = mlx_new_image(scene->mlx, scene->res.width,
 			scene->res.height);
-	scene->img_address = mlx_get_data_add(scene->img,
+	scene->img_address = mlx_get_data_addr(scene->img,
 			&img.bbp, &img.size_line, &img.endian);
 	mlx_hook(scene->win, CLOSE, 0L, close_program, scene);
 	mlx_key_hook(scene->win, key_hook, scene);

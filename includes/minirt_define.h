@@ -54,6 +54,9 @@ void	check_scene_values(t_scene *scene);
 void		read_resolution(char **line, t_scene *scene);
 void		read_ambient(char **line, t_scene *scene);
 
+void		read_camera(char **line, t_scene *scene);
+t_cam		*create_camera(char **line, t_scene *scene);
+void		add_camera(t_cam **cams, t_cam *new_cam);
 void	delete_cameras(t_cam **cams);
 void	next_camera(t_scene *scene);
 
@@ -84,6 +87,14 @@ void	set_ray(t_ray *ray, t_scene *scene, double x, double y);
 void	save_pixel(char **buffer, t_color color);
 
 void	cast_ray(t_ray *ray, t_scene *scene);
+void		render_sphere(t_ray *ray, t_scene *scene, t_sphere *sphere);
+double		intersect_sphere(t_ray *ray, t_sphere *sphere);
+
+t_color		get_surface_data(t_scene *scene, t_hit *p);
+t_color		illuminate(t_light *light, t_hit *p, int opt_specular);
+t_color		add_amb(t_scene *s, t_color point);
+t_color		add_color(t_color a, t_color b);
+void		check_rgb_color(t_color *color);
 
 /*
 ** shade FUNCIONS
@@ -100,12 +111,16 @@ int			get_int(char **line, t_scene *scene);
 double		get_double(char **line, t_scene *scene);
 
 void	    normalize_vec3(t_vec3 *v1);
+int			range_vec3(t_vec3 v1, double min, double max);
+int			ft_isnull_vec3(t_vec3 v1);
 t_color	    get_color_vec3(char **line, t_scene *scene);
 t_vec3	    get_vec3(char **line, t_scene *scene);
 
 t_vec3      new_vec3(double x, double y, double z);
+t_vec3		sub_vec3(t_vec3 u, t_vec3 v);
 t_vec3		esc_vec3(double k, t_vec3 v);
 t_vec3	    add_vec3(t_vec3 u, t_vec3 v);
+double  	dot_vec3(t_vec3 u, t_vec3 v);
 
 t_vec3		cross_vec3(t_vec3 v1, t_vec3 v2);
 t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
@@ -113,6 +128,9 @@ t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 /*
 ** others
 */
+
+void		sepia_filter(t_color *color);
+void		stereoscopy_filter(t_color *color);
 int	key_hook(int keycode, t_scene *scene);
 int	refresh(t_scene *scene);
 int	close_program(t_scene *scene);

@@ -22,6 +22,17 @@ void	normalize_vec3(t_vec3 *v1)
 	v1->z /= mod;
 }
 
+int		range_vec3(t_vec3 v1, double min, double max)
+{
+	return (v1.x < min || v1.x > max || v1.y < min
+	|| v1.y > max || v1.z < min || v1.z > max);
+}
+
+int		ft_isnull_vec3(t_vec3 v1)
+{
+	return (v1.x == 0.0 && v1.y == 0.0 && v1.z == 0.0);
+}
+
 t_color	get_color_vec3(char **line, t_scene *scene)
 {
 	t_color	vec3;

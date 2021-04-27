@@ -109,6 +109,16 @@ typedef struct s_cyl
 	struct s_cyl	*next;
 }		t_cyl;
 
+typedef struct	s_hit{
+	t_vec3		point;
+	t_vec3		normal;
+	t_vec3		light;
+	t_ray		shadow_ray;
+	t_color		color;
+	double		cyl_m;
+	t_vec3		cyl_center;
+}				t_hit;
+
 typedef struct s_scene
 {
 	int		save_bmp;

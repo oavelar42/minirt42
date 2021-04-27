@@ -10,58 +10,58 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	miniRT
+NAME		:= miniRT
 
-OS			:= $(shell uname)
+OS		:= $(shell uname)
 
-CC			= gcc -g -fsanitize=address
+CC		= gcc -g -fsanitize=address
 
 CFLAGS		= -Wall -Wextra -Werror
 
-INCLUDES	= -Iincludes/ -Ilibft/libft.h -I$(MINILIBX_DIR)
+INCLUDES	= -Iincludes/ -I$(MINILIBX_DIR)
 
 LIBFT_DIR	= libft/
 
 LIBFT_A		= libft/libft.a
 
-SRC_FILES	= 	main/minirt.c \
-							main/move_elem \
-							main/bmp.c \
-							main/scene.c \
-							main/check_args.c \
- 					 		main/surface_data.c \
-							main/shadows.c \
-							main/cast_shadows_2.c \
-							main/load_utils.c \
- 							main/vectors.c \
-						  main/vectors_1.c \
- 							main/vectors_2.c \
- 							main/errors.c \
- 							utils/render_scene.c \
-  						utils/render_sphere.c \
-							utils/render_plane.c \
-	 						utils/render_cy.c \
-						  utils/render_square.c \
-						  utils/render_triangle.c	\	
-							utils/read_scene.c \
- 							utils/read_elements.c \ 
- 							utils/read_camera.c \
- 							utils/read_light.c \
- 							utils/read_sphere.c \
- 							utils/read_plane.c \
- 							utils/read_cy.c \
- 							utils/read_square.c \
- 							utils/read_triangle.c  
-						 
 SRC_DIR		= srcs/
 
-SRC			= $(addprefix $(SRC_DIR), $(SRC_FILES))
+SRC_FILES	= 	main/minirt.c \
+			main/bmp.c \
+			main/cast_shadows.c \
+			main/check_args.c \
+			main/errors.c \
+ 			main/load_utils.c \
+			main/move_elem.c \
+			main/scene.c \
+			main/shadows.c \
+ 			main/surface_data.c \
+			main/vectors_1.c \
+ 			main/vectors_2.c \
+ 			main/vectors.c \
+			utils/read_camera.c \
+			utils/read_cy.c \
+			utils/read_elem.c \
+			utils/read_light.c \
+			utils/read_plane.c \
+			utils/read_scene.c \
+			utils/read_sphere.c \
+			utils/read_square.c \
+			utils/read_triangle.c \
+			utils/render_cy.c \
+  			utils/render_plane.c \
+			utils/render_scene.c \
+	 		utils/render_sphere.c \
+		 	utils/render_square.c \
+			utils/render_triangle.c		
+
+SRC		= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 GREEN		= \033[1;32m
 
 BLUE		= \033[0;34m
 
-RED			= \033[1;31m
+RED		= \033[1;31m
 
 COLOR_OFF	= \033[0m
 
@@ -69,6 +69,7 @@ ifeq ($(OS), Linux)
 	MINILIBX_DIR = mlx_linux
 	MLXFLAG = -lm -lbsd -lX11 -lXext
 endif
+
 ifeq ($(OS), Darwin)
 	MINILIBX_DIR = minilibx_mac
 	MLXFLAG = -lz -framework OpenGL -framework AppKit
@@ -85,7 +86,7 @@ $(NAME): $(OBJ)
 
 libraries:
 	@echo "$(BLUE)Building libraries...$(COLOR_OFF)"
-	make plus -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 	make -C $(MINILIBX_DIR)
 	@echo "$(GREEN)Libraries built$(COLOR_OFF)"
 
