@@ -69,7 +69,7 @@ void	cast_ray(t_ray *ray, t_scene *scene)
 		render_plane(ray, scene, (t_plane *)objs);
 		objs = ((t_plane *)objs)->next;
 	}
-	//cast_ray_2(ray, scene);
+	cast_ray_2(ray, scene);
 }
 
 void	save_pixel(char **buffer, t_color color)

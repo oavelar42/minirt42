@@ -76,6 +76,11 @@ t_plane		*create_plane(char **line, t_scene *scene);
 void		add_plane(t_plane **planes, t_plane *new_plane);
 void		delete_planes(t_plane **planes);
 
+void		read_cyl(char **line, t_scene *scene);
+t_cyl		*create_cyl(char **line, t_scene *scene);
+void		add_cyl(t_cyl **cyls, t_cyl *new_cyl);
+void		delete_cyls(t_cyl **cyls);
+
 /*
 ** bmp FUNCIONS
 */
@@ -92,10 +97,16 @@ void	set_ray(t_ray *ray, t_scene *scene, double x, double y);
 void	save_pixel(char **buffer, t_color color);
 
 void	cast_ray(t_ray *ray, t_scene *scene);
+void		cast_ray_2(t_ray *ray, t_scene *scene);
 void		render_sphere(t_ray *ray, t_scene *scene, t_sphere *sphere);
 double		intersect_sphere(t_ray *ray, t_sphere *sphere);
 void		render_plane(t_ray *ray, t_scene *scene, t_plane *plane);
 double		intersect_plane(t_ray *ray, t_plane *plane);
+void		render_cyl(t_ray *ray, t_scene *scene, t_cyl *cyl);
+double		intersect_tube(t_ray *ray, t_cyl *cyl);
+double		solve_quad(double a, double b, double discr);
+void		render_cyl_cap(t_ray *ray, t_scene *scene, t_cyl *cyl, t_hit *p);
+t_vec3		visible_cap(t_cyl *cyl, t_vec3 origin);
 
 t_color		get_surface_data(t_scene *scene, t_hit *p);
 t_color		illuminate(t_light *light, t_hit *p, int opt_specular);
@@ -109,6 +120,7 @@ void		check_rgb_color(t_color *color);
 int			shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos);
 int			shadows_2(t_scene *scene, t_ray *shadow_ray,
                 t_vec3 light_pos, void *obj);
+double		intersect_cyl(t_ray *ray, t_cyl *cyl);
 int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
 
 

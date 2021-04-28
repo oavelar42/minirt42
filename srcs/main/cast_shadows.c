@@ -12,6 +12,18 @@
 
 #include "minirt.h"
 
+void	cast_ray_2(t_ray *ray, t_scene *scene)
+{
+	void	*objs;
+
+	objs = scene->cyls;
+	while (objs)
+	{
+		render_cyl(ray, scene, (t_cyl *)objs);
+		objs = ((t_cyl *)objs)->next;
+	}
+}
+
 int	shadows_2(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos, void *obj)
 {
 	obj = scene->cyls;

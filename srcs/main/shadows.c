@@ -50,3 +50,27 @@ int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 	}
 	return (shadows_2(scene, shadow_ray, light_pos, obj));
 }
+
+double	intersect_cyl(t_ray *ray, t_cyl *cyl)
+{
+	double	t;
+	t_hit	p;
+	t_plane	cap;
+
+	if ((t = intersect_tube(ray, cyl)))
+	{
+		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
+		p.cyl_m = dot_vec3(cyl->n_vec, sub_vec3(p.point, cyl->point));
+		if (p.cyl_m > 0 && p.cyl_m < cyl->h)
+			return (t);
+	}
+	cap.point = visible_cap(cyl, ray->origin);
+	cap.n_dir = cyl->n_vec;
+	if ((t = intersect_plane(ray, &cap)))
+	{
+		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
+		if (mod_vec3(sub_vec3(p.point, cap.point)) < cyl->radius)
+			return (t);
+	}
+	return (0);
+}
