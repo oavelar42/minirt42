@@ -107,6 +107,8 @@ void		check_rgb_color(t_color *color);
 ** shade FUNCIONS
 */
 int			shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos);
+int			shadows_2(t_scene *scene, t_ray *shadow_ray,
+                t_vec3 light_pos, void *obj);
 int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
 
 

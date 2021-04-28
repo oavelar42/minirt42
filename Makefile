@@ -92,6 +92,7 @@ libraries:
 
 clean:
 	@make clean -C $(LIBFT_DIR)
+	@make clean -C $(MINILIBX_DIR)
 
 fclean:
 	@rm -f $(NAME) 

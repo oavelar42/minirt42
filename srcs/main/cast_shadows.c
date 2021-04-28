@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cast_shadows.c                                         :+:      :+:    :+:   */
+/*   cast_shadows.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,3 +12,15 @@
 
 #include "minirt.h"
 
+int	shadows_2(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos, void *obj)
+{
+	obj = scene->cyls;
+	while (obj)
+	{
+		if ((shadow_ray->t = intersect_cyl(shadow_ray, (t_cyl *)obj)))
+			if (block_light(shadow_ray, light_pos))
+				return (1);
+		obj = ((t_cyl *)obj)->next;
+	}
+	return (0);
+}

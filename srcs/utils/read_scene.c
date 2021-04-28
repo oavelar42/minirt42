@@ -32,6 +32,8 @@ void	read_element(char **line, t_scene *scene)
 		read_light(line, scene);
 	else if (!ft_strncmp(*line, "sp ", 3))
 		read_sphere(line, scene);
+	else if (!ft_strncmp(*line, "pl ", 3))
+		read_plane(line, scene);
 	else if (**line != EMPTY_LINE_GNL)
 		exit_error_msg(SCENE_FORMAT_ERR, scene);
 	return ;

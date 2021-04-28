@@ -63,6 +63,13 @@ void	cast_ray(t_ray *ray, t_scene *scene)
 		render_sphere(ray, scene, (t_sphere *)objs);
 		objs = ((t_sphere *)objs)->next;
 	}
+	objs = scene->planes;
+	while (objs)
+	{
+		render_plane(ray, scene, (t_plane *)objs);
+		objs = ((t_plane *)objs)->next;
+	}
+	//cast_ray_2(ray, scene);
 }
 
 void	save_pixel(char **buffer, t_color color)

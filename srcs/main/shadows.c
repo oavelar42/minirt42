@@ -48,5 +48,5 @@ int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 				return (1);
 		obj = ((t_plane *)obj)->next;
 	}
-	return (1);
+	return (shadows_2(scene, shadow_ray, light_pos, obj));
 }

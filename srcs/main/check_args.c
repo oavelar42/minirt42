@@ -31,7 +31,7 @@ void	check_args(int argc, char **argv, t_scene *scene)
 		else
 			exit_error_msg(OPT_ERR, scene);
 	}
-	if (ft_strncmp((argv[1] + ft_strlen (argv[1]) - 3), ".rt", 3))
+	if (ft_strncmp((argv[1] + ft_strlen(argv[1]) - 3), ".rt", 3))
 		exit_error_msg(SCENE_FILE_ERR, scene);
 }
 
