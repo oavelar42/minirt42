@@ -20,7 +20,7 @@ int	block_light(t_ray *shadow_ray, t_vec3 light_pos)
 	double	light_dist;
 
 	sh_point = add_vec3(shadow_ray->origin,
-		esc_vec3(shadow_ray->t, shadow_ray->origin));
+		esc_vec3(shadow_ray->t, shadow_ray->dir));
 	point_dist = mod_vec3(sub_vec3(sh_point, shadow_ray->origin));
 	light_dist = mod_vec3(sub_vec3(light_pos, shadow_ray->origin));
 	if (point_dist > 0.0001 && point_dist < light_dist)

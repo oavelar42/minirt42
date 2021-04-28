@@ -47,6 +47,7 @@ t_cyl	*create_cyl(char **line, t_scene *scene)
 	if (**line != EMPTY_LINE_GNL)
 		exit_error_msg(SCENE_FORMAT_ERR, scene);
 	cyl->next = NULL;
+    return (cyl);
 }
 
 void	read_cyl(char **line, t_scene *scene)

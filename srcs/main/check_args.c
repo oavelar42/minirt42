@@ -14,7 +14,7 @@
 
 void	check_args(int argc, char **argv, t_scene *scene)
 {
-	if (argc < 2 || argc < 3)
+	if (argc < 2 || argc > 3)
 		exit_error_msg(ARGS_ERR, scene);
 	if (ft_strlen(argv[1]) < 4)
 		exit_error_msg(SCENE_FILE_ERR, scene);
