@@ -36,3 +36,13 @@ t_vec3	mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m )
 	t.z = v.x * m.v1.z + v.y * m.v2.z + v.z * m.v3.z;
 	return (t);
 }
+
+t_vec3	ft_vec_mult_d(double a, t_vec3 v)
+{
+	t_vec3	vfinal;
+
+	vfinal.x = v.x * a;
+	vfinal.y = v.y * a;
+	vfinal.z = v.z * a;
+	return (vfinal);
+}

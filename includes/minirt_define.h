@@ -14,6 +14,7 @@
 #define MINIRT_DEFINE_H
 
 # define EMPTY_LINE_GNL '\0'
+# define PI 3.141592653589793
 
 # if defined(__linux__) || defined(__unix__)
 #  define ESC 65307
@@ -87,6 +88,7 @@ void		delete_cyls(t_cyl **cyls);
 void		save_image_bmp(t_scene *scene);
 void		header_data(int fd, t_scene *scene);
 void		pixel_data(int fd, t_scene *scene);
+t_vec3	ft_vec_mult_d(double a, t_vec3 v);
 
 /*
 ** render FUNCIONS
@@ -122,6 +124,11 @@ int			shadows_2(t_scene *scene, t_ray *shadow_ray,
                 t_vec3 light_pos, void *obj);
 double		intersect_cyl(t_ray *ray, t_cyl *cyl);
 int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
+
+t_vec3		rotation(t_vec3 vec, t_vec3 angle);
+t_vec3		rotation_z(t_vec3 vec, double z);
+t_vec3		rotation_y(t_vec3 vec, double y);
+t_vec3		rotation_x(t_vec3 vec, double x);
 
 
 /*
@@ -161,7 +168,7 @@ int	refresh(t_scene *scene);
 int	close_program(t_scene *scene);
 void	exit_error_msg(t_error id, t_scene *scene);
 void	push_image(t_scene *scene);
-void	move_element(int keycode, t_scene *scene);
+void 	move_element(int keycode, t_scene *scene);
 void	move_x_pos(t_scene *scene, int key);
 void	move_x_neg(t_scene *scene, int key);
 void	move_y_pos(t_scene *scene, int key);

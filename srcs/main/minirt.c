@@ -20,11 +20,11 @@ int	close_program(t_scene *scene)
 	return (0);
 }
 
-int	key_hook(int keycode, t_scene *scene)
+int		key_hook(int keycode, t_scene *scene)
 {
 	if (keycode == ESC)
 	{
-		printf("\n\nClosed with ESC\n");
+		printf("\n\nAborted\n");
 		close_program(scene);
 	}
 	if (keycode == SPACE)
@@ -35,14 +35,14 @@ int	key_hook(int keycode, t_scene *scene)
 	if (keycode == C)
 	{
 		scene->obj_id = C;
-		printf("Lets move this");
+		printf("move cylinder");
 	}
 	if (keycode == S)
 	{
 		scene->obj_id = S;
-		printf("Keep moving");
+		printf("move sphere");
 	}
-	if (keycode == UP || keycode == DOWN || keycode == LEFT || keycode == RIGHT)
+	if (keycode == RIGHT || keycode == LEFT || keycode == UP || keycode == DOWN)
 		move_element(keycode, scene);
 	return (0);
 }
