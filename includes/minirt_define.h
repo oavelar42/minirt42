@@ -26,6 +26,9 @@
 #  define UP 65362
 #  define C 99
 #  define S 115
+#  define R 114
+#  define T 116
+
 
 # elif __APPLE__
 #  define ESC 54
@@ -82,6 +85,11 @@ t_cyl		*create_cyl(char **line, t_scene *scene);
 void		add_cyl(t_cyl **cyls, t_cyl *new_cyl);
 void		delete_cyls(t_cyl **cyls);
 
+void		read_square(char **line, t_scene *scene);
+t_square	*create_square(char **line, t_scene *scene);
+void		add_square(t_square **squares, t_square *new_square);
+void		delete_squares(t_square **squares);
+
 /*
 ** bmp FUNCIONS
 */
@@ -109,6 +117,8 @@ double		intersect_tube(t_ray *ray, t_cyl *cyl);
 double		solve_quad(double a, double b, double discr);
 void		render_cyl_cap(t_ray *ray, t_scene *scene, t_cyl *cyl, t_hit *p);
 t_vec3		visible_cap(t_cyl *cyl, t_vec3 origin);
+void		render_square(t_ray *ray, t_scene *scene, t_square *square);
+int			in_square(t_square *square, t_vec3 point);
 
 t_color		get_surface_data(t_scene *scene, t_hit *p);
 t_color		illuminate(t_light *light, t_hit *p, int opt_specular);
@@ -124,11 +134,6 @@ int			shadows_2(t_scene *scene, t_ray *shadow_ray,
                 t_vec3 light_pos, void *obj);
 double		intersect_cyl(t_ray *ray, t_cyl *cyl);
 int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
-
-t_vec3		rotation(t_vec3 vec, t_vec3 angle);
-t_vec3		rotation_z(t_vec3 vec, double z);
-t_vec3		rotation_y(t_vec3 vec, double y);
-t_vec3		rotation_x(t_vec3 vec, double x);
 
 
 /*

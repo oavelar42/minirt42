@@ -28,6 +28,7 @@ void	scene_init(t_scene *scene)
 	scene->lights = NULL;
 	scene->planes = NULL;
 	scene->cyls = NULL;
+	scene->squares = NULL;
 }
 
 void	scene_quit(t_scene *scene)
@@ -37,4 +38,5 @@ void	scene_quit(t_scene *scene)
 	delete_spheres(&scene->spheres);
 	delete_planes(&scene->planes);
 	delete_cyls(&scene->cyls);
+	delete_squares(&scene->squares);
 }

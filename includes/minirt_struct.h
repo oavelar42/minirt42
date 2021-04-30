@@ -78,7 +78,6 @@ typedef struct s_cam
 {
 	t_vec3		pos;
 	t_vec3		dir;
-	t_vec3		hor;
 	double		fov;
 	t_mat3x3	cam_to_world;
 	struct s_cam	*next;
@@ -108,6 +107,14 @@ typedef struct	s_plane
 	struct s_plane	*next;
 }				t_plane;
 
+typedef struct	s_square{
+	t_vec3			center;
+	t_vec3			n_dir;
+	double			side;
+	t_color			color;
+	struct s_square	*next;
+}			t_square;
+
 typedef struct s_cyl
 {
 	t_vec3		point;
@@ -128,13 +135,12 @@ typedef struct	s_hit{
 	t_vec3		cyl_center;
 }				t_hit;
 
-typedef struct s_scene
-{
-	int		save_bmp;
-	int		specular;
-	int		sepia;
-	int		stereoscopy;
-	int		obj_id;
+typedef struct	s_scene{
+	int			save_bmp;
+	int			specular;
+	int			sepia;
+	int			stereoscopy;
+	int			obj_id;
 	void		*mlx;
 	void		*win;
 	char		*img_address;
@@ -142,12 +148,13 @@ typedef struct s_scene
 	t_res		res;
 	t_amb		amb;
 	t_cam		*cams;
-	int		cam_count;
+	int			cam_count;
 	t_light		*lights;
 	t_sphere	*spheres;
 	t_plane		*planes;
 	t_cyl		*cyls;
-}		t_scene;
+	t_square	*squares;
+}				t_scene;
 
 typedef struct s_img
 {

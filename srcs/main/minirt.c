@@ -24,7 +24,7 @@ int		key_hook(int keycode, t_scene *scene)
 {
 	if (keycode == ESC)
 	{
-		printf("\n\nAborted\n");
+		printf("\n\nClosed with ESC\n");
 		close_program(scene);
 	}
 	if (keycode == SPACE)
@@ -35,17 +35,18 @@ int		key_hook(int keycode, t_scene *scene)
 	if (keycode == C)
 	{
 		scene->obj_id = C;
-		printf("move cylinder");
+		printf("Move cylinder, if you press another key SIGSEGV");
 	}
 	if (keycode == S)
 	{
 		scene->obj_id = S;
-		printf("move sphere");
+		printf("Move sphere, if you press another key SIGSEGV");
 	}
 	if (keycode == RIGHT || keycode == LEFT || keycode == UP || keycode == DOWN)
 		move_element(keycode, scene);
 	return (0);
 }
+
 
 void	push_image(t_scene *scene)
 {

@@ -52,6 +52,7 @@ void	move_y_neg(t_scene *scene, int key)
 	}
 }
 
+
 void	move_x_pos(t_scene *scene, int key)
 {
 	void	*obj;

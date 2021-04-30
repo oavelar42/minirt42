@@ -56,3 +56,13 @@ double	dot_vec3(t_vec3 u, t_vec3 v)
 {
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }
+
+t_vec3	ft_vec_mult_v(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3	vfinal;
+
+	vfinal.x = v1.x * v2.x;
+	vfinal.y = v1.y * v2.y;
+	vfinal.z = v1.z * v2.z;
+	return (vfinal);
+}
