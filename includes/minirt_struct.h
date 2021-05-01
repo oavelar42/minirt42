@@ -115,6 +115,14 @@ typedef struct	s_square{
 	struct s_square	*next;
 }			t_square;
 
+typedef struct	s_triangle{
+	t_vec3				a;
+	t_vec3				b;
+	t_vec3				c;
+	t_color				color;
+	struct s_triangle	*next;
+}				t_triangle;
+
 typedef struct s_cyl
 {
 	t_vec3		point;
@@ -154,6 +162,7 @@ typedef struct	s_scene{
 	t_plane		*planes;
 	t_cyl		*cyls;
 	t_square	*squares;
+	t_triangle	*triangles;
 }				t_scene;
 
 typedef struct s_img
