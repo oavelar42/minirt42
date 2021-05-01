@@ -46,7 +46,7 @@ int in_square(t_square *square, t_vec3 point)
 
     x = (t_vec3){1, 0, 0};
     y = cross_vec3(square->n_dir, x);
-    if (mod_vec(y)== 0)
+    if (mod_vec3(y) == 0)
     {
         x = new_vec3(0, 1, 0);
         y = cross_vec3(square->n_dir, x);

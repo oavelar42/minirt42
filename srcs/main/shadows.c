@@ -51,6 +51,23 @@ int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 	return (shadows_2(scene, shadow_ray, light_pos, obj));
 }
 
+double	intersect_square(t_ray *ray, t_square *square)
+{
+	double	t;
+	t_hit	p;
+	t_plane	pl_sq;
+
+	pl_sq.point = square->center;
+	pl_sq.n_dir = square->n_dir;
+	if ((t = intersect_plane(ray, &pl_sq)))
+	{
+		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
+		if (in_square(square, p.point))
+			return (t);
+	}
+	return (0);
+}
+
 double	intersect_cyl(t_ray *ray, t_cyl *cyl)
 {
 	double	t;

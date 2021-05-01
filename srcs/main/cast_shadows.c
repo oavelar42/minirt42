@@ -22,6 +22,12 @@ void	cast_ray_2(t_ray *ray, t_scene *scene)
 		render_cyl(ray, scene, (t_cyl *)objs);
 		objs = ((t_cyl *)objs)->next;
 	}
+	objs = scene->squares;
+	while (objs)
+	{
+		render_square(ray, scene, (t_square *)objs);
+		objs = ((t_square *)objs)->next;
+	}
 }
 
 int	shadows_2(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos, void *obj)
@@ -33,6 +39,14 @@ int	shadows_2(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos, void *obj)
 			if (block_light(shadow_ray, light_pos))
 				return (1);
 		obj = ((t_cyl *)obj)->next;
+	}
+	obj = scene->squares;
+	while (obj)
+	{
+		if ((shadow_ray->t = intersect_square(shadow_ray, (t_square *)obj)))
+			if (block_light(shadow_ray, light_pos))
+				return (1);
+		obj = ((t_square *)obj)->next;
 	}
 	return (0);
 }
