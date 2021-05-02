@@ -90,6 +90,11 @@ t_square	*create_square(char **line, t_scene *scene);
 void		add_square(t_square **squares, t_square *new_square);
 void		delete_squares(t_square **squares);
 
+void		read_triangle(char **line, t_scene *scene);
+t_triangle	*create_triangle(char **line, t_scene *scene);
+void		add_triangle(t_triangle **triangles, t_triangle *new_triangle);
+void		delete_triangles(t_triangle **triangles);
+
 /*
 ** bmp FUNCIONS
 */
@@ -119,6 +124,9 @@ void		render_cyl_cap(t_ray *ray, t_scene *scene, t_cyl *cyl, t_hit *p);
 t_vec3		visible_cap(t_cyl *cyl, t_vec3 origin);
 void		render_square(t_ray *ray, t_scene *scene, t_square *square);
 int			in_square(t_square *square, t_vec3 point);
+void		render_triangle(t_ray *ray, t_scene *scene, t_triangle *triangle);
+int			in_triangle(t_triangle *triangle, t_vec3 point, t_vec3 normal);
+int			edge_side(t_vec3 v1, t_vec3 v0, t_vec3 p, t_vec3 n);
 
 t_color		get_surface_data(t_scene *scene, t_hit *p);
 t_color		illuminate(t_light *light, t_hit *p, int opt_specular);

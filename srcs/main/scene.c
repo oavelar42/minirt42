@@ -40,5 +40,5 @@ void	scene_quit(t_scene *scene)
 	delete_planes(&scene->planes);
 	delete_cyls(&scene->cyls);
 	delete_squares(&scene->squares);
-	//delete_triangles(&scene->triangles);
+	delete_triangles(&scene->triangles);
 }

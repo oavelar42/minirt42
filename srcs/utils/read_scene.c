@@ -38,8 +38,8 @@ void	read_element(char **line, t_scene *scene)
 		read_cyl(line, scene);
 	else if (!ft_strncmp(*line, "sq ", 3))
 		read_square(line, scene);
-	/*else if (!ft_strncmp(*line, "tr ", 3))
-		read_triangle(line, scene);*/
+	else if (!ft_strncmp(*line, "tr ", 3))
+		read_triangle(line, scene);
 	else if (**line != EMPTY_LINE_GNL)
 		exit_error_msg(SCENE_FORMAT_ERR, scene);
 	return ;
