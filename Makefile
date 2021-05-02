@@ -33,6 +33,7 @@ SRC_FILES	= 	main/minirt.c \
 			main/errors.c \
  			main/load_utils.c \
 			main/move_elem.c \
+			main/rotation.c \
 			main/scene.c \
 			main/shadows.c \
  			main/surface_data.c \

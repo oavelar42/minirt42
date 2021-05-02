@@ -80,7 +80,7 @@ void	delete_cameras(t_cam **cams)
 	*cams = NULL;
 }
 
-void	next_camera(t_scene *scene)
+void	next_camera(t_scene *scene, int key)
 {
 	t_cam	*current;
 
@@ -92,4 +92,10 @@ void	next_camera(t_scene *scene)
 	current = scene->cams->next;
 	free(scene->cams);
 	scene->cams = current;
+	if (key == R)
+		((t_cam *)current)->dir = rotation(((t_cam *)current)->dir,
+			(t_vec3){0, -1, 0});
+	if (key == T)
+		((t_cam *)current)->dir = rotation(((t_cam *)current)->dir,
+			(t_vec3){0, 1, 0});
 }

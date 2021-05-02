@@ -62,7 +62,7 @@ void		read_camera(char **line, t_scene *scene);
 t_cam		*create_camera(char **line, t_scene *scene);
 void		add_camera(t_cam **cams, t_cam *new_cam);
 void	delete_cameras(t_cam **cams);
-void	next_camera(t_scene *scene);
+void	next_camera(t_scene *scene, int key);
 
 void		read_light(char **line, t_scene *scene);
 t_light		*create_light(char **line, t_scene *scene);
@@ -166,6 +166,11 @@ t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 /*
 ** others
 */
+
+t_vec3		rotation(t_vec3 vec, t_vec3 angle);
+t_vec3		rotation_x(t_vec3 vec, double x);
+t_vec3		rotation_y(t_vec3 vec, double y);
+t_vec3		rotation_z(t_vec3 vec, double z);
 
 void		sepia_filter(t_color *color);
 void		stereoscopy_filter(t_color *color);

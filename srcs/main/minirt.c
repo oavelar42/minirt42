@@ -29,7 +29,7 @@ int		key_hook(int keycode, t_scene *scene)
 	}
 	if (keycode == SPACE)
 	{
-		next_camera(scene);
+		next_camera(scene, keycode);
 		push_image(scene);
 	}
 	if (keycode == C)
