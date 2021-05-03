@@ -91,3 +91,25 @@ double	intersect_cyl(t_ray *ray, t_cyl *cyl)
 	}
 	return (0);
 }
+
+double	intersect_triangle(t_ray *ray, t_triangle *triangle)
+{
+	double	t;
+	t_hit	p;
+	t_plane	pl_tr;
+	t_vec3	v1;
+	t_vec3	v2;
+
+	pl_tr.point = triangle->a;
+	v1 = sub_vec3(triangle->b, triangle->a);
+	v2 = sub_vec3(triangle->c, triangle->a);
+	pl_tr.n_dir = cross_vec3(v2, v1);
+	normalize_vec3(&pl_tr.n_dir);
+	if ((t = intersect_plane(ray, &pl_tr)))
+	{
+		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
+		if (in_triangle(triangle, p.point, pl_tr.n_dir))
+			return (t);
+	}
+	return (0);
+}
