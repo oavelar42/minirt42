@@ -46,8 +46,8 @@ t_color	get_color_vec3(char **line, t_scene *scene)
 	skip_char(line, ',');
 	vec3.b = get_double(line, scene);
 	if ((vec3.r < 0 || vec3.r > 255) || (vec3.g < 0
-		|| vec3.g > 255) || (vec3.b < 0 || vec3.b > 255))
-		exit_error_msg(RGB_RANGE_ERR, scene);	
+	|| vec3.g > 255) || (vec3.b < 0 || vec3.b > 255))
+		exit_error_msg(RGB_RANGE_ERR, scene);
 	return (vec3);
 }
 

@@ -28,7 +28,7 @@ t_color	add_color(t_color a, t_color b)
 
 	color.r = a.r + b.r;
 	color.g = a.g + b.g;
-	color.r = a.b + b.b;
+	color.b = a.b + b.b;
 	return (color);
 }
 

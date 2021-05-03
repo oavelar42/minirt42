@@ -18,14 +18,14 @@ void	scene_init(t_scene *scene)
 	scene->specular = 0;
 	scene->sepia = 0;
 	scene->stereoscopy = 0;
-	scene->win = NULL;
 	scene->obj_id = 0;
+	scene->win = NULL;
 	scene->res.declared = 0;
 	scene->amb.declared = 0;
 	scene->cams = NULL;
 	scene->cam_count = 0;
-	scene->spheres = NULL;
 	scene->lights = NULL;
+	scene->spheres = NULL;
 	scene->planes = NULL;
 	scene->cyls = NULL;
 	scene->squares = NULL;

@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	add_light(t_light **lights, t_light *new_light)
+void		add_light(t_light **lights, t_light *new_light)
 {
 	t_light	*last;
 
@@ -29,7 +29,7 @@ void	add_light(t_light **lights, t_light *new_light)
 	last->next = new_light;
 }
 
-t_light	*create_light(char **line, t_scene *scene)
+t_light		*create_light(char **line, t_scene *scene)
 {
 	t_light	*light;
 
@@ -47,7 +47,7 @@ t_light	*create_light(char **line, t_scene *scene)
 	return (light);
 }
 
-void	read_light(char **line, t_scene *scene)
+void		read_light(char **line, t_scene *scene)
 {
 	t_light	*new_light;
 
@@ -57,7 +57,7 @@ void	read_light(char **line, t_scene *scene)
 	return ;
 }
 
-void	delete_lights(t_light **lights)
+void		delete_lights(t_light **lights)
 {
 	t_light	*current;
 	t_light	*node;

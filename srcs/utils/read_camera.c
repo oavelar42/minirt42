@@ -63,7 +63,7 @@ void		read_camera(char **line, t_scene *scene)
 	return ;
 }
 
-void	delete_cameras(t_cam **cams)
+void		delete_cameras(t_cam **cams)
 {
 	t_cam	*current;
 	t_cam	*node;
@@ -80,22 +80,16 @@ void	delete_cameras(t_cam **cams)
 	*cams = NULL;
 }
 
-void	next_camera(t_scene *scene, int key)
+void		next_camera(t_scene *scene)
 {
 	t_cam	*current;
 
 	if (scene->cams->next == NULL)
 	{
-		printf("\r\nNo more cameras, lets close your program\n");
+		printf("\r\nNo more cameras: We closed your program\n");
 		close_program(scene);
 	}
 	current = scene->cams->next;
 	free(scene->cams);
 	scene->cams = current;
-	if (key == R)
-		((t_cam *)current)->dir = rotation(((t_cam *)current)->dir,
-			(t_vec3){0, -1, 0});
-	if (key == T)
-		((t_cam *)current)->dir = rotation(((t_cam *)current)->dir,
-			(t_vec3){0, 1, 0});
 }

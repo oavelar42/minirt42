@@ -12,6 +12,7 @@
 
 #include "minirt.h"
 
+
 void	add_cyl(t_cyl **cyls, t_cyl *new_cyl)
 {
 	t_cyl	*last;
@@ -31,7 +32,7 @@ void	add_cyl(t_cyl **cyls, t_cyl *new_cyl)
 
 t_cyl	*create_cyl(char **line, t_scene *scene)
 {
-	t_cyl *cyl;
+	t_cyl	*cyl;
 
 	if (!(cyl = malloc(sizeof(t_cyl))))
 		exit_error_msg(DEFAULT_ERR, scene);
@@ -47,7 +48,7 @@ t_cyl	*create_cyl(char **line, t_scene *scene)
 	if (**line != EMPTY_LINE_GNL)
 		exit_error_msg(SCENE_FORMAT_ERR, scene);
 	cyl->next = NULL;
-    return (cyl);
+	return (cyl);
 }
 
 void	read_cyl(char **line, t_scene *scene)
@@ -62,8 +63,8 @@ void	read_cyl(char **line, t_scene *scene)
 
 void	delete_cyls(t_cyl **cyls)
 {
-	t_cyl *current;
-	t_cyl *node;
+	t_cyl	*current;
+	t_cyl	*node;
 
 	if (!*cyls || !cyls)
 		return ;

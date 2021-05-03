@@ -37,7 +37,7 @@ double	intersect_tube(t_ray *ray, t_cyl *cyl)
 	a = 1 - aux * aux;
 	aux = dot_vec3(oc, cyl->n_vec);
 	b = 2 * (dot_vec3(ray->dir, oc) - dot_vec3(ray->dir, cyl->n_vec)
-		* dot_vec3(oc, cyl->n_vec));
+	* dot_vec3(oc, cyl->n_vec));
 	c = dot_vec3(oc, oc) - aux * aux - cyl->radius * cyl->radius;
 	return (solve_quad(a, b, b * b - 4 * a * c));
 }
@@ -82,9 +82,9 @@ void	render_cyl_cap(t_ray *ray, t_scene *scene, t_cyl *cyl, t_hit *p)
 			p->point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
 			if (mod_vec3(sub_vec3(p->point, cap.point)) < cyl->radius)
 			{
-				ray->t  = t;
+				ray->t = t;
 				p->normal = dot_vec3(cap.n_dir, ray->dir) < 0 ?
-					cap.n_dir : esc_vec3(-1, cap.n_dir);
+				cap.n_dir : esc_vec3(-1, cap.n_dir);
 				normalize_vec3(&p->normal);
 				p->color = cyl->color;
 				ray->color = get_surface_data(scene, p);

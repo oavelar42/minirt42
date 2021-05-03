@@ -34,7 +34,7 @@ t_vec3	sub_vec3(t_vec3 u, t_vec3 v)
 
 t_vec3	add_vec3(t_vec3 u, t_vec3 v)
 {
-	t_vec3 	w;
+	t_vec3	w;
 
 	w.x = u.x + v.x;
 	w.y = u.y + v.y;
@@ -44,7 +44,7 @@ t_vec3	add_vec3(t_vec3 u, t_vec3 v)
 
 t_vec3	esc_vec3(double k, t_vec3 v)
 {
-	t_vec3	t;
+	t_vec3 t;
 
 	t.x = k * v.x;
 	t.y = k * v.y;
@@ -55,14 +55,4 @@ t_vec3	esc_vec3(double k, t_vec3 v)
 double	dot_vec3(t_vec3 u, t_vec3 v)
 {
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
-}
-
-t_vec3	ft_vec_mult_v(t_vec3 v1, t_vec3 v2)
-{
-	t_vec3	vfinal;
-
-	vfinal.x = v1.x * v2.x;
-	vfinal.y = v1.y * v2.y;
-	vfinal.z = v1.z * v2.z;
-	return (vfinal);
 }

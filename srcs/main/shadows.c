@@ -13,14 +13,14 @@
 
 #include "minirt.h"
 
-int	block_light(t_ray *shadow_ray, t_vec3 light_pos)
+int		block_light(t_ray *shadow_ray, t_vec3 light_pos)
 {
 	t_vec3	sh_point;
 	double	point_dist;
 	double	light_dist;
 
 	sh_point = add_vec3(shadow_ray->origin,
-		esc_vec3(shadow_ray->t, shadow_ray->dir));
+	esc_vec3(shadow_ray->t, shadow_ray->dir));
 	point_dist = mod_vec3(sub_vec3(sh_point, shadow_ray->origin));
 	light_dist = mod_vec3(sub_vec3(light_pos, shadow_ray->origin));
 	if (point_dist > 0.0001 && point_dist < light_dist)
@@ -28,17 +28,17 @@ int	block_light(t_ray *shadow_ray, t_vec3 light_pos)
 	return (0);
 }
 
-int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
+int		shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 {
 	void	*obj;
 
-	obj =scene->spheres;
+	obj = scene->spheres;
 	while (obj)
 	{
 		if ((shadow_ray->t = intersect_sphere(shadow_ray, (t_sphere *)obj)))
 			if (block_light(shadow_ray, light_pos))
 				return (1);
-		obj = ((t_sphere *)obj)->next;
+		obj = ((t_sphere*)obj)->next;
 	}
 	obj = scene->planes;
 	while (obj)
@@ -46,7 +46,7 @@ int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 		if ((shadow_ray->t = intersect_plane(shadow_ray, (t_plane *)obj)))
 			if (block_light(shadow_ray, light_pos))
 				return (1);
-		obj = ((t_plane *)obj)->next;
+		obj = ((t_plane*)obj)->next;
 	}
 	return (shadows_2(scene, shadow_ray, light_pos, obj));
 }

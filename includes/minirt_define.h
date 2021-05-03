@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef MINIRT_DEFINE_H
-#define MINIRT_DEFINE_H
+# define MINIRT_DEFINE_H
 
 # define EMPTY_LINE_GNL '\0'
 # define PI 3.141592653589793
@@ -26,9 +26,6 @@
 #  define UP 65362
 #  define C 99
 #  define S 115
-#  define R 114
-#  define T 116
-
 
 # elif __APPLE__
 #  define ESC 54
@@ -43,32 +40,33 @@
 /*
 ** main FUNCIONS
 */
-int	main(int argc, char **argv);
-void	scene_init(t_scene *scene);
-void	check_args(int argc, char **argv, t_scene *scene);
-void    read_scene(char *file, t_scene *scene);
-void	display_scene(t_scene *scene);
-void	scene_quit(t_scene *scene);
+
+int			main(int argc, char **argv);
+void		scene_init(t_scene *scene);
+void		check_args(int argc, char **argv, t_scene *scene);
+void		read_scene(char *file, t_scene *scene);
+void		display_scene(t_scene *scene);
+void		scene_quit(t_scene *scene);
 
 /*
 ** read FUNCIONS
 */
-void	read_element(char **line, t_scene *scene);
-void	check_scene_values(t_scene *scene);
+
+void		read_element(char **line, t_scene *scene);
+void		check_scene_values(t_scene *scene);
 void		read_resolution(char **line, t_scene *scene);
 void		read_ambient(char **line, t_scene *scene);
 
 void		read_camera(char **line, t_scene *scene);
 t_cam		*create_camera(char **line, t_scene *scene);
 void		add_camera(t_cam **cams, t_cam *new_cam);
-void	delete_cameras(t_cam **cams);
-void	next_camera(t_scene *scene, int key);
+void		delete_cameras(t_cam **cams);
+void		next_camera(t_scene *scene);
 
 void		read_light(char **line, t_scene *scene);
 t_light		*create_light(char **line, t_scene *scene);
 void		add_light(t_light **lights, t_light *new_light);
 void		delete_lights(t_light **lights);
-
 
 void		read_sphere(char **line, t_scene *scene);
 t_sphere	*create_sphere(char **line, t_scene *scene);
@@ -98,20 +96,21 @@ void		delete_triangles(t_triangle **triangles);
 /*
 ** bmp FUNCIONS
 */
+
 void		save_image_bmp(t_scene *scene);
 void		header_data(int fd, t_scene *scene);
 void		pixel_data(int fd, t_scene *scene);
-t_vec3	ft_vec_mult_d(double a, t_vec3 v);
 
 /*
 ** render FUNCIONS
 */
-void	render_scene(t_scene *scene);
-void	look_at(t_cam *cam);
-void	set_ray(t_ray *ray, t_scene *scene, double x, double y);
-void	save_pixel(char **buffer, t_color color);
 
-void	cast_ray(t_ray *ray, t_scene *scene);
+void		render_scene(t_scene *scene);
+void		look_at(t_cam *cam);
+void		set_ray(t_ray *ray, t_scene *scene, double x, double y);
+void		save_pixel(char **buffer, t_color color);
+
+void		cast_ray(t_ray *ray, t_scene *scene);
 void		cast_ray_2(t_ray *ray, t_scene *scene);
 void		render_sphere(t_ray *ray, t_scene *scene, t_sphere *sphere);
 double		intersect_sphere(t_ray *ray, t_sphere *sphere);
@@ -137,14 +136,14 @@ void		check_rgb_color(t_color *color);
 /*
 ** shade FUNCIONS
 */
+
 int			shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos);
 int			shadows_2(t_scene *scene, t_ray *shadow_ray,
-                t_vec3 light_pos, void *obj);
+t_vec3 light_pos, void *obj);
 double		intersect_square(t_ray *ray, t_square *square);
 double		intersect_triangle(t_ray *ray, t_triangle *triangle);
 double		intersect_cyl(t_ray *ray, t_cyl *cyl);
 int			block_light(t_ray *shadow_ray, t_vec3 light_pos);
-
 
 /*
 ** auxiliar FUNCTIONS
@@ -156,42 +155,39 @@ void		skip_char(char **str, int c);
 int			get_int(char **line, t_scene *scene);
 double		get_double(char **line, t_scene *scene);
 
-void	    normalize_vec3(t_vec3 *v1);
+void		normalize_vec3(t_vec3 *v1);
 int			range_vec3(t_vec3 v1, double min, double max);
 int			ft_isnull_vec3(t_vec3 v1);
-t_color	    get_color_vec3(char **line, t_scene *scene);
-t_vec3	    get_vec3(char **line, t_scene *scene);
+t_color		get_color_vec3(char **line, t_scene *scene);
+t_vec3		get_vec3(char **line, t_scene *scene);
 
-t_vec3      new_vec3(double x, double y, double z);
+t_vec3		new_vec3(double x, double y, double z);
 t_vec3		sub_vec3(t_vec3 u, t_vec3 v);
+t_vec3		add_vec3(t_vec3 u, t_vec3 v);
 t_vec3		esc_vec3(double k, t_vec3 v);
-t_vec3	    add_vec3(t_vec3 u, t_vec3 v);
-double  	dot_vec3(t_vec3 u, t_vec3 v);
+double		dot_vec3(t_vec3 u, t_vec3 v);
 
 t_vec3		cross_vec3(t_vec3 v1, t_vec3 v2);
 double		mod_vec3(t_vec3 v);
+double		det_mat3x3(t_mat3x3 m);
+t_mat3x3	invert_mat3x3(t_mat3x3 m);
 t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 
 /*
 ** others
 */
 
-t_vec3		rotation(t_vec3 vec, t_vec3 angle);
-t_vec3		rotation_x(t_vec3 vec, double x);
-t_vec3		rotation_y(t_vec3 vec, double y);
-t_vec3		rotation_z(t_vec3 vec, double z);
-
 void		sepia_filter(t_color *color);
 void		stereoscopy_filter(t_color *color);
-int	key_hook(int keycode, t_scene *scene);
-int	refresh(t_scene *scene);
-int	close_program(t_scene *scene);
-void	exit_error_msg(t_error id, t_scene *scene);
-void	push_image(t_scene *scene);
-void 	move_element(int keycode, t_scene *scene);
-void	move_x_pos(t_scene *scene, int key);
-void	move_x_neg(t_scene *scene, int key);
-void	move_y_pos(t_scene *scene, int key);
-void	move_y_neg(t_scene *scene, int key);
+int			key_hook(int keycode, t_scene *scene);
+int			refresh(t_scene *scene);
+int			close_program(t_scene *scene);
+void		exit_error_msg(t_error id, t_scene *scene);
+void		push_image(t_scene *scene);
+void		move_element(int keycode, t_scene *scene);
+void		move_x_pos(t_scene *scene, int key);
+void		move_x_neg(t_scene *scene, int key);
+void		move_y_pos(t_scene *scene, int key);
+void		move_y_neg(t_scene *scene, int key);
 
 #endif

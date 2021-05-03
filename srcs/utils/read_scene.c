@@ -47,10 +47,10 @@ void	read_element(char **line, t_scene *scene)
 
 void	read_scene(char *file, t_scene *scene)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 	char	*temp;
-	int	bytes;
+	int		bytes;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)

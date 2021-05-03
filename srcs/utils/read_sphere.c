@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void	add_sphere(t_sphere **spheres, t_sphere *new_sphere)
+void		add_sphere(t_sphere **spheres, t_sphere *new_sphere)
 {
 	t_sphere	*last;
 
@@ -36,7 +36,7 @@ t_sphere	*create_sphere(char **line, t_scene *scene)
 	if (!(sphere = malloc(sizeof(t_sphere))))
 		exit_error_msg(DEFAULT_ERR, scene);
 	sphere->centre = get_vec3(line, scene);
-	sphere->radius = get_double(line, scene);
+	sphere->radius = get_double(line, scene) / 2;
 	sphere->color = get_color_vec3(line, scene);
 	skip_blanks(line);
 	if (**line != EMPTY_LINE_GNL)
@@ -45,7 +45,7 @@ t_sphere	*create_sphere(char **line, t_scene *scene)
 	return (sphere);
 }
 
-void	read_sphere(char **line, t_scene *scene)
+void		read_sphere(char **line, t_scene *scene)
 {
 	t_sphere	*new_sphere;
 
@@ -55,7 +55,7 @@ void	read_sphere(char **line, t_scene *scene)
 	return ;
 }
 
-void	delete_spheres(t_sphere **spheres)
+void		delete_spheres(t_sphere **spheres)
 {
 	t_sphere	*current;
 	t_sphere	*node;
