@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/05/04 14:23:11 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 15:54:23 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #  define S 115
 
 # elif __APPLE__
-#  define ESC 54
+#  define ESC 53
 #  define SPACE 49
 #  define CLOSE 17
 #  define LEFT 123
@@ -178,6 +178,12 @@ t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 /*
 ** others
 */
+
+/*t_vec3		rotation_x(t_vec3 vec, double x);
+t_vec3		rotation_y(t_vec3 vec, double y);
+t_vec3		rotation_z(t_vec3 vec, double z);
+t_vec3		rotation(t_vec3 vec, t_vec3 angle);
+void	    ft_rot(t_scene cams, char key);*/
 
 void		sepia_filter(t_color *color);
 void		stereoscopy_filter(t_color *color);

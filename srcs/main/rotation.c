@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 16:55:31 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,14 @@ t_vec3		rotation(t_vec3 vec, t_vec3 angle)
 	new_vec = rotation_y(new_vec, angle.y);
 	new_vec = rotation_z(new_vec, angle.z);
 	return (new_vec);
+}
+
+void	ft_rot(t_scene cams, char key)
+{
+	int	key;
+
+	if (key == R)
+		cam->direction = rotation(cam->direction, (t_vec3){0, -1, 0});
+	if (key == T)
+		cam->diriction = rotation(cam->direction, (t_vec3){0, 1, 0});
 }
