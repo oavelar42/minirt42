@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 14:26:34 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		get_int(char **line, t_scene *scene)
 {
 	int	a;
 
+	a = 0;
 	skip_blanks(line);
 	if (**line == '-' || ft_isdigit(**line))
 	{
@@ -50,6 +51,7 @@ double	get_double(char **line, t_scene *scene)
 {
 	double	a;
 
+	a = 0;
 	skip_blanks(line);
 	if (**line == '-' || **line == '.' || ft_isdigit(**line))
 	{

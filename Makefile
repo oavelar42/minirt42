@@ -6,7 +6,7 @@
 #    By: oavelar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/23 19:51:56 by oavelar           #+#    #+#              #
-#    Updated: 2021/04/10 23:34:56 by oavelar          ###   ########.fr        #
+#    Updated: 2021/05/04 14:37:34 by oavelar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME		:= miniRT
 
 OS		:= $(shell uname)
 
-CC		= gcc -g -fsanitize=address
+CC		= gcc 
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -Imlx
 
 INCLUDES	= -Iincludes/ -I$(MINILIBX_DIR)
 
@@ -72,7 +72,7 @@ endif
 
 ifeq ($(OS), Darwin)
 	MINILIBX_DIR = minilibx_mac
-	MLXFLAG = -lz -framework OpenGL -framework AppKit
+	MLXFLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 endif
 
 MINILIBX_A	= $(MINILIBX_DIR)/libmlx.a
