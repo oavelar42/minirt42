@@ -71,7 +71,11 @@ typedef struct	s_amb{
 typedef struct	s_cam{
 	t_vec3			pos;
 	t_vec3			dir;
+<<<<<<< HEAD
 	//t_vec3			direction;
+=======
+	t_vec3			direction;
+>>>>>>> cacaaf505d841feb924d8e38ebdbfa38c31e1b0a
 	double			fov;
 	t_mat3x3		cam_to_world;
 	struct s_cam	*next;

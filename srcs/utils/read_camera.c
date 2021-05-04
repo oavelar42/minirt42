@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 16:55:36 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ t_cam		*create_camera(char **line, t_scene *scene)
 		exit_error_msg(DEFAULT_ERR, scene);
 	cam->pos = get_vec3(line, scene);
 	cam->dir = get_vec3(line, scene);
+<<<<<<< HEAD
 	//cam->direction = ft_rot(key, cam);
+=======
+	//cam->direction = ft_rot(scene->cams, cam);
+>>>>>>> cacaaf505d841feb924d8e38ebdbfa38c31e1b0a
 	if (range_vec3(cam->dir, -1.0, 1.0))
 		exit_error_msg(VEC_RANGE_ERR, scene);
 	normalize_vec3(&cam->dir);

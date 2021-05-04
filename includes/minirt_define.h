@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 15:54:23 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,11 @@ t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 t_vec3		rotation_y(t_vec3 vec, double y);
 t_vec3		rotation_z(t_vec3 vec, double z);
 t_vec3		rotation(t_vec3 vec, t_vec3 angle);
+<<<<<<< HEAD
 t_vec3       ft_rot(int key, t_cam *cam);*/
+=======
+void	    ft_rot(t_scene cams, char key);*/
+>>>>>>> cacaaf505d841feb924d8e38ebdbfa38c31e1b0a
 
 void		sepia_filter(t_color *color);
 void		stereoscopy_filter(t_color *color);

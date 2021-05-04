@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/04 14:32:54 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ double	intersect_plane(t_ray *ray, t_plane *plane)
 	double	t;
 	double	denom;
 
+	t = 0;
 	denom = dot_vec3(ray->dir, plane->n_dir);
 	if (fabs(denom) > 0.00001)
 		t = dot_vec3(sub_vec3(plane->point,
