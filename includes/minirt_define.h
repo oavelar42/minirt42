@@ -26,15 +26,19 @@
 #  define UP 65362
 #  define C 99
 #  define S 115
+#  define R 114
+#  define T 116
 
 # elif __APPLE__
-#  define ESC 54
+#  define ESC 53
 #  define SPACE 49
 #  define CLOSE 17
 #  define LEFT 123
 #  define RIGHT 124
 #  define DOWN 125
 #  define UP 126
+#  define C 8
+#  define S 1
 # endif
 
 /*
@@ -176,6 +180,12 @@ t_vec3		mult_vec3_mat3x3(t_vec3 v, t_mat3x3 m);
 /*
 ** others
 */
+
+/*t_vec3		rotation_x(t_vec3 vec, double x);
+t_vec3		rotation_y(t_vec3 vec, double y);
+t_vec3		rotation_z(t_vec3 vec, double z);
+t_vec3		rotation(t_vec3 vec, t_vec3 angle);
+t_vec3       ft_rot(int key, t_cam *cam);*/
 
 void		sepia_filter(t_color *color);
 void		stereoscopy_filter(t_color *color);

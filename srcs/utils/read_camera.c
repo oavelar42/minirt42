@@ -32,11 +32,14 @@ void		add_camera(t_cam **cams, t_cam *new_cam)
 t_cam		*create_camera(char **line, t_scene *scene)
 {
 	t_cam	*cam;
+	int		key;
 
+	key = 1;
 	if (!(cam = malloc(sizeof(t_cam))))
 		exit_error_msg(DEFAULT_ERR, scene);
 	cam->pos = get_vec3(line, scene);
 	cam->dir = get_vec3(line, scene);
+	//cam->direction = ft_rot(key, cam);
 	if (range_vec3(cam->dir, -1.0, 1.0))
 		exit_error_msg(VEC_RANGE_ERR, scene);
 	normalize_vec3(&cam->dir);

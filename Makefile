@@ -33,6 +33,7 @@ SRC_FILES	= 	main/minirt.c \
 			main/errors.c \
  			main/load_utils.c \
 			main/move_elem.c \
+			main/rotation.c \
 			main/scene.c \
 			main/shadows.c \
  			main/surface_data.c \
@@ -72,7 +73,7 @@ endif
 
 ifeq ($(OS), Darwin)
 	MINILIBX_DIR = minilibx_mac
-	MLXFLAG = -lz -framework OpenGL -framework AppKit
+	MLXFLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
 endif
 
 MINILIBX_A	= $(MINILIBX_DIR)/libmlx.a

@@ -35,11 +35,6 @@ typedef struct	s_vec3{
 	double	z;
 }				t_vec3;
 
-/*
-**	[v1.x  v1.y  v1.z]
-**	[v2.x  v2.y  v1.2]
-**	[v3.x  v3.y  v1.3]
-*/
 typedef struct	s_mat3x3{
 	t_vec3	v1;
 	t_vec3	v2;
@@ -76,6 +71,7 @@ typedef struct	s_amb{
 typedef struct	s_cam{
 	t_vec3			pos;
 	t_vec3			dir;
+	//t_vec3			direction;
 	double			fov;
 	t_mat3x3		cam_to_world;
 	struct s_cam	*next;

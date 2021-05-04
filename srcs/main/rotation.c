@@ -54,3 +54,12 @@ t_vec3		rotation(t_vec3 vec, t_vec3 angle)
 	new_vec = rotation_z(new_vec, angle.z);
 	return (new_vec);
 }
+
+/*t_vec3		ft_rot(int key, t_cam *cam)
+{
+	if (key == R)
+		cam->direction = rotation(cam->direction, (t_vec3){0, -1, 0});
+	if (key == T)
+		cam->direction = rotation(cam->direction, (t_vec3){0, 1, 0});
+	return ;
+}*/
