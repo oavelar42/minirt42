@@ -26,8 +26,6 @@
 #  define UP 65362
 #  define C 99
 #  define S 115
-#  define R 114
-#  define T 116
 
 # elif __APPLE__
 #  define ESC 53

@@ -72,11 +72,7 @@ endif
 
 ifeq ($(OS), Darwin)
 	MINILIBX_DIR = minilibx_mac
-<<<<<<< HEAD
 	MLXFLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
-=======
-	MLXFLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit 
->>>>>>> cacaaf505d841feb924d8e38ebdbfa38c31e1b0a
 endif
 
 MINILIBX_A	= $(MINILIBX_DIR)/libmlx.a
