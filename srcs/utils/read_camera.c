@@ -39,11 +39,6 @@ t_cam		*create_camera(char **line, t_scene *scene)
 		exit_error_msg(DEFAULT_ERR, scene);
 	cam->pos = get_vec3(line, scene);
 	cam->dir = get_vec3(line, scene);
-<<<<<<< HEAD
-	//cam->direction = ft_rot(key, cam);
-=======
-	//cam->direction = ft_rot(scene->cams, cam);
->>>>>>> cacaaf505d841feb924d8e38ebdbfa38c31e1b0a
 	if (range_vec3(cam->dir, -1.0, 1.0))
 		exit_error_msg(VEC_RANGE_ERR, scene);
 	normalize_vec3(&cam->dir);
