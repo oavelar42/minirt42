@@ -62,7 +62,7 @@ void		delete_squares(t_square **squares)
 	t_square	*current;
 	t_square	*node;
 
-	if (!squares || *squares)
+	if (!squares || !*squares)
 		return ;
 	current = *squares;
 	while (current)
