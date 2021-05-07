@@ -33,7 +33,8 @@ t_plane	*create_plane(char **line, t_scene *scene)
 {
 	t_plane	*plane;
 
-	if (!(plane = malloc(sizeof(t_plane))))
+	plane = malloc(sizeof(t_plane));
+	if (!plane)
 		exit_error_msg(DEFAULT_ERR, scene);
 	plane->point = get_vec3(line, scene);
 	plane->n_dir = get_vec3(line, scene);

@@ -37,7 +37,7 @@ void	exit_error_msg(t_error id, t_scene *scene)
 	exit(EXIT_FAILURE);
 }
 
-int		refresh(t_scene *scene)
+int	refresh(t_scene *scene)
 {
 	mlx_clear_window(scene->mlx, scene->win);
 	mlx_put_image_to_window(scene->mlx, scene->win, scene->img, 0, 0);

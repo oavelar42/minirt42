@@ -12,7 +12,6 @@
 
 #include "minirt.h"
 
-
 void	add_cyl(t_cyl **cyls, t_cyl *new_cyl)
 {
 	t_cyl	*last;
@@ -34,7 +33,8 @@ t_cyl	*create_cyl(char **line, t_scene *scene)
 {
 	t_cyl	*cyl;
 
-	if (!(cyl = malloc(sizeof(t_cyl))))
+	cyl = malloc(sizeof(t_cyl));
+	if (!cyl)
 		exit_error_msg(DEFAULT_ERR, scene);
 	cyl->point = get_vec3(line, scene);
 	cyl->n_vec = get_vec3(line, scene);

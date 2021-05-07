@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vectors_2.c                                         :+:      :+:    :+:   */
+/*   vectors_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,13 +22,13 @@ void	normalize_vec3(t_vec3 *v1)
 	v1->z /= mod;
 }
 
-int		range_vec3(t_vec3 v1, double min, double max)
+int	range_vec3(t_vec3 v1, double min, double max)
 {
 	return (v1.x < min || v1.x > max || v1.y < min
-	|| v1.y > max || v1.z < min || v1.z > max);
+		|| v1.y > max || v1.z < min || v1.z > max);
 }
 
-int		ft_isnull_vec3(t_vec3 v1)
+int	ft_isnull_vec3(t_vec3 v1)
 {
 	return (v1.x == 0.0 && v1.y == 0.0 && v1.z == 0.0);
 }
@@ -46,7 +46,7 @@ t_color	get_color_vec3(char **line, t_scene *scene)
 	skip_char(line, ',');
 	vec3.b = get_double(line, scene);
 	if ((vec3.r < 0 || vec3.r > 255) || (vec3.g < 0
-	|| vec3.g > 255) || (vec3.b < 0 || vec3.b > 255))
+			|| vec3.g > 255) || (vec3.b < 0 || vec3.b > 255))
 		exit_error_msg(RGB_RANGE_ERR, scene);
 	return (vec3);
 }

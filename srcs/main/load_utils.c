@@ -30,7 +30,7 @@ void	skip_char(char **str, int c)
 		(*str)++;
 }
 
-int		get_int(char **line, t_scene *scene)
+int	get_int(char **line, t_scene *scene)
 {
 	int	a;
 

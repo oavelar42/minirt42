@@ -17,7 +17,7 @@ void	save_image_bmp(t_scene *scene)
 	int	fd;
 
 	if (!(scene->img_address = malloc(sizeof(char)
-	* 4 * scene->res.width * scene->res.height)))
+				* 4 * scene->res.width * scene->res.height)))
 		exit_error_msg(DEFAULT_ERR, scene);
 	render_scene(scene);
 	if ((fd = open("oavelaRT.bmp", O_WRONLY | O_CREAT | O_TRUNC, 0744)) == -1)
@@ -61,6 +61,6 @@ void	pixel_data(int fd, t_scene *scene)
 	while (i--)
 	{
 		write(fd, scene->img_address + i * scene->res.width
-		* 4, scene->res.width * 4);
+			* 4, scene->res.width * 4);
 	}
 }

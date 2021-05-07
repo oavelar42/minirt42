@@ -85,7 +85,7 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)miniRT done!$(COLOR_OFF)"
 
 libraries:
-	@echo "$(BLUE)Building libraries...$(COLOR_OFF)"
+	@echo "$(BLUE)Building libraries....$(COLOR_OFF)"
 	make -C $(LIBFT_DIR)
 	make -C $(MINILIBX_DIR)
 	@echo "$(GREEN)Libraries built$(COLOR_OFF)"

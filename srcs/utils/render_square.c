@@ -39,7 +39,7 @@ void	render_square(t_ray *ray, t_scene *scene, t_square *square)
 	}
 }
 
-int		in_square(t_square *square, t_vec3 point)
+int	in_square(t_square *square, t_vec3 point)
 {
 	t_vec3	x;
 	t_vec3	y;
@@ -54,7 +54,7 @@ int		in_square(t_square *square, t_vec3 point)
 	normalize_vec3(&x);
 	normalize_vec3(&y);
 	if (ft_abs(dot_vec3(x, sub_vec3(point, square->center))) <= square->side
-	&& ft_abs(dot_vec3(y, sub_vec3(point, square->center))) <= square->side)
+		&& ft_abs(dot_vec3(y, sub_vec3(point, square->center))) <= square->side)
 		return (1);
 	return (0);
 }

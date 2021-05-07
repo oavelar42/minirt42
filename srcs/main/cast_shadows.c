@@ -36,7 +36,7 @@ void	cast_ray_2(t_ray *ray, t_scene *scene)
 	}
 }
 
-int		shadows_2(t_scene *scene, t_ray *shadow_ray,
+int	shadows_2(t_scene *scene, t_ray *shadow_ray,
 t_vec3 light_pos, void *obj)
 {
 	obj = scene->cyls;

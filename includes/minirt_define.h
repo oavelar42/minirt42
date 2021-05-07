@@ -141,7 +141,7 @@ void		check_rgb_color(t_color *color);
 
 int			shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos);
 int			shadows_2(t_scene *scene, t_ray *shadow_ray,
-t_vec3 light_pos, void *obj);
+t_vec3		light_pos, void *obj);
 double		intersect_square(t_ray *ray, t_square *square);
 double		intersect_triangle(t_ray *ray, t_triangle *triangle);
 double		intersect_cyl(t_ray *ray, t_cyl *cyl);

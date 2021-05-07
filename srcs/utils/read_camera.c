@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void		add_camera(t_cam **cams, t_cam *new_cam)
+void	add_camera(t_cam **cams, t_cam *new_cam)
 {
 	t_cam	*last;
 
@@ -29,11 +29,12 @@ void		add_camera(t_cam **cams, t_cam *new_cam)
 	last->next = new_cam;
 }
 
-t_cam		*create_camera(char **line, t_scene *scene)
+t_cam	*create_camera(char **line, t_scene *scene)
 {
 	t_cam	*cam;
 
-	if (!(cam = malloc(sizeof(t_cam))))
+	cam = malloc(sizeof(t_cam));
+	if (!cam)
 		exit_error_msg(DEFAULT_ERR, scene);
 	cam->pos = get_vec3(line, scene);
 	cam->dir = get_vec3(line, scene);
@@ -52,7 +53,7 @@ t_cam		*create_camera(char **line, t_scene *scene)
 	return (cam);
 }
 
-void		read_camera(char **line, t_scene *scene)
+void	read_camera(char **line, t_scene *scene)
 {
 	t_cam	*new_cam;
 
@@ -63,7 +64,7 @@ void		read_camera(char **line, t_scene *scene)
 	return ;
 }
 
-void		delete_cameras(t_cam **cams)
+void	delete_cameras(t_cam **cams)
 {
 	t_cam	*current;
 	t_cam	*node;
@@ -80,7 +81,7 @@ void		delete_cameras(t_cam **cams)
 	*cams = NULL;
 }
 
-void		next_camera(t_scene *scene)
+void	next_camera(t_scene *scene)
 {
 	t_cam	*current;
 

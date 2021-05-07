@@ -44,7 +44,7 @@ t_vec3	add_vec3(t_vec3 u, t_vec3 v)
 
 t_vec3	esc_vec3(double k, t_vec3 v)
 {
-	t_vec3 t;
+	t_vec3	t;
 
 	t.x = k * v.x;
 	t.y = k * v.y;

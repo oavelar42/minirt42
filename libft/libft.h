@@ -76,12 +76,9 @@ int					ft_pow(int a, int exp);
 void				ft_swap(int *a, int *b);
 void				ft_sort_int(int *res, int size);
 void				ft_strclr(char *s);
-double			ft_abs(double val);
-double			ft_atod(const char *str);
-
-
+double				ft_abs(double val);
+double				ft_atod(const char *str);
 int					get_next_line(int fd, char **line);
-
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);

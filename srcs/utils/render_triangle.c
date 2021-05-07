@@ -20,7 +20,7 @@ void	render_triangle(t_ray *ray, t_scene *scene, t_triangle *triangle)
 
 	pl_tr.point = triangle->a;
 	pl_tr.n_dir = cross_vec3(sub_vec3(triangle->c, triangle->a),
-	sub_vec3(triangle->b, triangle->a));
+			sub_vec3(triangle->b, triangle->a));
 	normalize_vec3(&pl_tr.n_dir);
 	if ((t = intersect_plane(ray, &pl_tr)))
 	{
@@ -41,16 +41,16 @@ void	render_triangle(t_ray *ray, t_scene *scene, t_triangle *triangle)
 	}
 }
 
-int		in_triangle(t_triangle *triangle, t_vec3 point, t_vec3 normal)
+int	in_triangle(t_triangle *triangle, t_vec3 point, t_vec3 normal)
 {
-	if (edge_side(triangle->b, triangle->a, point, normal) &&
-	edge_side(triangle->c, triangle->b, point, normal) &&
-	edge_side(triangle->a, triangle->c, point, normal))
+	if (edge_side(triangle->b, triangle->a, point, normal)
+		&&edge_side(triangle->c, triangle->b, point, normal)
+		&&edge_side(triangle->a, triangle->c, point, normal))
 		return (1);
 	return (0);
 }
 
-int		edge_side(t_vec3 v1, t_vec3 v0, t_vec3 p, t_vec3 n)
+int	edge_side(t_vec3 v1, t_vec3 v0, t_vec3 p, t_vec3 n)
 {
 	double	q;
 

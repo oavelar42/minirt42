@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void		add_triangle(t_triangle **triangles, t_triangle *new_triangle)
+void	add_triangle(t_triangle **triangles, t_triangle *new_triangle)
 {
 	t_triangle	*last;
 
@@ -33,7 +33,8 @@ t_triangle	*create_triangle(char **line, t_scene *scene)
 {
 	t_triangle	*triangle;
 
-	if (!(triangle = malloc(sizeof(t_triangle))))
+	triangle = malloc(sizeof(t_triangle));
+	if (!triangle)
 		exit_error_msg(DEFAULT_ERR, scene);
 	triangle->a = get_vec3(line, scene);
 	triangle->b = get_vec3(line, scene);
@@ -45,7 +46,7 @@ t_triangle	*create_triangle(char **line, t_scene *scene)
 	return (triangle);
 }
 
-void		read_triangle(char **line, t_scene *scene)
+void	read_triangle(char **line, t_scene *scene)
 {
 	t_triangle	*new_triangle;
 
@@ -55,7 +56,7 @@ void		read_triangle(char **line, t_scene *scene)
 	return ;
 }
 
-void		delete_triangles(t_triangle **triangles)
+void	delete_triangles(t_triangle **triangles)
 {
 	t_triangle	*current;
 	t_triangle	*node;

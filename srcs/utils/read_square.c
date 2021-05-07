@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-void		add_square(t_square **squares, t_square *new_square)
+void	add_square(t_square **squares, t_square *new_square)
 {
 	t_square	*last;
 
@@ -33,7 +33,8 @@ t_square	*create_square(char **line, t_scene *scene)
 {
 	t_square	*square;
 
-	if (!(square = malloc(sizeof(t_square))))
+	square = malloc(sizeof(t_square));
+	if (!square)
 		exit_error_msg(DEFAULT_ERR, scene);
 	square->center = get_vec3(line, scene);
 	square->n_dir = get_vec3(line, scene);
@@ -47,7 +48,7 @@ t_square	*create_square(char **line, t_scene *scene)
 	return (square);
 }
 
-void		read_square(char **line, t_scene *scene)
+void	read_square(char **line, t_scene *scene)
 {
 	t_square	*new_square;
 
@@ -57,7 +58,7 @@ void		read_square(char **line, t_scene *scene)
 	return ;
 }
 
-void		delete_squares(t_square **squares)
+void	delete_squares(t_square **squares)
 {
 	t_square	*current;
 	t_square	*node;

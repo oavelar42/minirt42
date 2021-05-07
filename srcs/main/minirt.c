@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int		close_program(t_scene *scene)
+int	close_program(t_scene *scene)
 {
 	mlx_destroy_window(scene->mlx, scene->win);
 	scene_quit(scene);
@@ -20,7 +20,7 @@ int		close_program(t_scene *scene)
 	return (0);
 }
 
-int		key_hook(int keycode, t_scene *scene)
+int	key_hook(int keycode, t_scene *scene)
 {
 	if (keycode == ESC)
 	{
@@ -60,10 +60,10 @@ void	display_scene(t_scene *scene)
 
 	scene->mlx = mlx_init();
 	scene->win = mlx_new_window(scene->mlx, scene->res.width,
-	scene->res.height, "OavelaRT");
+			scene->res.height, "OavelaRT");
 	scene->img = mlx_new_image(scene->mlx, scene->res.width, scene->res.height);
 	scene->img_address = mlx_get_data_addr(scene->img,
-	&img.bbp, &img.size_line, &img.endian);
+			&img.bbp, &img.size_line, &img.endian);
 	mlx_hook(scene->win, CLOSE, 0L, close_program, scene);
 	mlx_key_hook(scene->win, key_hook, scene);
 	mlx_expose_hook(scene->win, refresh, scene);
@@ -71,7 +71,7 @@ void	display_scene(t_scene *scene)
 	mlx_loop(scene->mlx);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_scene	scene;
 

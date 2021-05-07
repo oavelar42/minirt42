@@ -40,7 +40,7 @@ double	intersect_plane(t_ray *ray, t_plane *plane)
 	denom = dot_vec3(ray->dir, plane->n_dir);
 	if (fabs(denom) > 0.00001)
 		t = dot_vec3(sub_vec3(plane->point,
-		ray->origin), plane->n_dir) / denom;
+					ray->origin), plane->n_dir) / denom;
 	if (t >= 0)
 		return (t);
 	else
