@@ -34,17 +34,19 @@ int	shadows_1(t_scene *scene, t_ray *shadow_ray, t_vec3 light_pos)
 	obj = scene->spheres;
 	while (obj)
 	{
-		if ((shadow_ray->t = intersect_sphere(shadow_ray, (t_sphere *)obj)))
-			if (block_light(shadow_ray, light_pos))
-				return (1);
+		if (shadow_ray->t)
+			shadow_ray->t = intersect_sphere(shadow_ray, (t_sphere *)obj);
+		if (block_light(shadow_ray, light_pos))
+			return (1);
 		obj = ((t_sphere *)obj)->next;
 	}
 	obj = scene->planes;
 	while (obj)
 	{
-		if ((shadow_ray->t = intersect_plane(shadow_ray, (t_plane *)obj)))
-			if (block_light(shadow_ray, light_pos))
-				return (1);
+		if (shadow_ray->t)
+			shadow_ray->t = intersect_plane(shadow_ray, (t_plane *)obj);
+		if (block_light(shadow_ray, light_pos))
+			return (1);
 		obj = ((t_plane *)obj)->next;
 	}
 	return (shadows_2(scene, shadow_ray, light_pos, obj));
@@ -58,7 +60,8 @@ double	intersect_square(t_ray *ray, t_square *square)
 
 	pl_sq.point = square->center;
 	pl_sq.n_dir = square->n_dir;
-	if ((t = intersect_plane(ray, &pl_sq)))
+	t = intersect_plane(ray, &pl_sq);
+	if (t)
 	{
 		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
 		if (in_square(square, p.point))
@@ -73,7 +76,8 @@ double	intersect_cyl(t_ray *ray, t_cyl *cyl)
 	t_hit	p;
 	t_plane	cap;
 
-	if ((t = intersect_tube(ray, cyl)))
+	t = intersect_tube(ray, cyl);
+	if (t)
 	{
 		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
 		p.cyl_m = dot_vec3(cyl->n_vec, sub_vec3(p.point, cyl->point));
@@ -82,7 +86,8 @@ double	intersect_cyl(t_ray *ray, t_cyl *cyl)
 	}
 	cap.point = visible_cap(cyl, ray->origin);
 	cap.n_dir = cyl->n_vec;
-	if ((t = intersect_plane(ray, &cap)))
+	t = intersect_plane(ray, &cap);
+	if (t)
 	{
 		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
 		if (mod_vec3(sub_vec3(p.point, cap.point)) < cyl->radius)
@@ -104,7 +109,8 @@ double	intersect_triangle(t_ray *ray, t_triangle *triangle)
 	v2 = sub_vec3(triangle->c, triangle->a);
 	pl_tr.n_dir = cross_vec3(v2, v1);
 	normalize_vec3(&pl_tr.n_dir);
-	if ((t = intersect_plane(ray, &pl_tr)))
+	t = intersect_plane(ray, &pl_tr);
+	if (t)
 	{
 		p.point = add_vec3(ray->origin, esc_vec3(t, ray->dir));
 		if (in_triangle(triangle, p.point, pl_tr.n_dir))

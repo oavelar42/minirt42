@@ -16,12 +16,17 @@ void	save_image_bmp(t_scene *scene)
 {
 	int	fd;
 
-	if (!(scene->img_address = malloc(sizeof(char)
-				* 4 * scene->res.width * scene->res.height)))
+	fd = 0;
+	scene->img_address = malloc(sizeof(char)
+			* 4 * scene->res.width * scene->res.height);
+	if (!(scene->img_address))
 		exit_error_msg(DEFAULT_ERR, scene);
 	render_scene(scene);
-	if ((fd = open("oavelaRT.bmp", O_WRONLY | O_CREAT | O_TRUNC, 0744)) == -1)
+	if (fd)
+	{
+		fd = open("oavelaRT.bmp", O_WRONLY | O_CREAT | O_TRUNC, 0744) == -1;
 		exit_error_msg(DEFAULT_ERR, scene);
+	}
 	header_data(fd, scene);
 	pixel_data(fd, scene);
 	close(fd);

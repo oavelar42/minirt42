@@ -6,7 +6,7 @@
 /*   By: oavelar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 11:07:35 by oavelar           #+#    #+#             */
-/*   Updated: 2021/04/10 14:47:38 by oavelar          ###   ########.fr       */
+/*   Updated: 2021/05/13 15:47:27 by oavelar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,34 @@ t_vec3 light_pos, void *obj)
 	obj = scene->cyls;
 	while (obj)
 	{
-		if ((shadow_ray->t = intersect_cyl(shadow_ray, (t_cyl *)obj)))
-			if (block_light(shadow_ray, light_pos))
-				return (1);
+		if (shadow_ray->t)
+			shadow_ray->t = intersect_cyl(shadow_ray, (t_cyl *)obj);
+		if (block_light(shadow_ray, light_pos))
+			return (1);
 		obj = ((t_cyl *)obj)->next;
 	}
 	obj = scene->squares;
 	while (obj)
 	{
-		if ((shadow_ray->t = intersect_square(shadow_ray, (t_square *)obj)))
-			if (block_light(shadow_ray, light_pos))
-				return (1);
+		if (shadow_ray->t)
+			shadow_ray->t = intersect_square(shadow_ray, (t_square *)obj);
+		if (block_light(shadow_ray, light_pos))
+			return (1);
 		obj = ((t_square *)obj)->next;
 	}
+	return (shadows_3(scene, shadow_ray, light_pos, obj));
+}
+
+int	shadows_3(t_scene *scene, t_ray *shadow_ray,
+t_vec3 light_pos, void *obj)
+{
 	obj = scene->triangles;
 	while (obj)
 	{
-		if ((shadow_ray->t = intersect_triangle(shadow_ray, (t_triangle *)obj)))
-			if (block_light(shadow_ray, light_pos))
-				return (1);
+		if (shadow_ray->t)
+			shadow_ray->t = intersect_triangle(shadow_ray, (t_triangle *)obj);
+		if (block_light(shadow_ray, light_pos))
+			return (1);
 		obj = ((t_triangle *)obj)->next;
 	}
 	return (0);
