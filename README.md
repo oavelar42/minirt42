@@ -29,5 +29,7 @@ Create BMP image :
 
 <h2>Just simples example of Raytring</h2>
 
-<img scenes="all_objs.bmp">
+<p align="center">
+  <img width="660" height="500" src="scenes/all_objs.bmp">
+                                                                    </p>
 
