@@ -27,7 +27,7 @@ Create BMP image :
 
 - <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">RT in one week by Peter Shirley</a>
 
-<h2>Just simples example of Raytring</h2>
+<h2>Just simple example of Raytring</h2>
 
 <p align="center">
   <img width="660" height="500" src="/scenes/all_obj.bmp" alt="All object"/>
