@@ -21,6 +21,8 @@ Create BMP image :
 
 ./miniRT scenes/<files.rt> --save
 
+<h3>Site for help about minilibx and Ray Tracing</h3>
+
 - <a href="https://github.com/42Paris/minilibx-linux">42paris</a>
 
 - <a href="https://harm-smits.github.io/42docs/libs/minilibx">Tutorial</a>
