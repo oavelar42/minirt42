@@ -7,7 +7,7 @@ The “Ray Tracing” method, developed for the first time in 1968 (but improved
 
 As a result it is not well adapted to real time usecases but it produces a much higher degree of visual realism.
 
-This project done for MAC's and Linux ...
+<h4>This project done for MAC's and Linux ...</h4>
 
 Compiling the program :
 
