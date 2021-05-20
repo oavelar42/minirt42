@@ -31,6 +31,7 @@ Create BMP image :
 
 <h2>Just simple example of Raytring</h2>
 
+<h3>All objects</h3>
 <p align="center">
   <img width="660" height="500" src="/scenes/all_obj.bmp" alt="All object"/>
 </p>
