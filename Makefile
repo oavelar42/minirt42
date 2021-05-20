@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oavelar <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: oavelar <oavelar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/23 19:51:56 by oavelar           #+#    #+#              #
-#    Updated: 2021/05/04 14:37:34 by oavelar          ###   ########.fr        #
+#    Updated: 2021/05/20 19:47:47 by oavelar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,11 +58,8 @@ SRC_FILES	= 	main/minirt.c \
 SRC		= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 GREEN		= \033[1;32m
-
 BLUE		= \033[0;34m
-
 RED		= \033[1;31m
-
 COLOR_OFF	= \033[0m
 
 ifeq ($(OS), Linux)
@@ -72,7 +69,7 @@ endif
 
 ifeq ($(OS), Darwin)
 	MINILIBX_DIR = minilibx_mac
-	MLXFLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
+	MLXFLAG = -lmlx -framework OpenGL -framework AppKit
 endif
 
 MINILIBX_A	= $(MINILIBX_DIR)/libmlx.a
